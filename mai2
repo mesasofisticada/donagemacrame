@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Fios - Mesa Sofisticada</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f6f5f3;
+        color: #000000;
+        text-align: center;
+        padding: 20px;
+      }
+      .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      .logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .subtext {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        color: #c2a992;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #c2a992;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+      }
+      button {
+        background: #c2a992;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #a8907a;
+      }
+      .resultado {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-text">MESA SOFISTICADA</div>
+      <div class="subtext">por Donage</div>
+      <h2>Calculadora de Fios</h2>
+      <p>
+        Insira os valores abaixo para calcular a quantidade de fios necessária.
+      </p>
+      <input
+        type="number"
+        id="a"
+        placeholder="Quantidade inicial de fios (A)"
+      />
+      <input type="number" id="b" placeholder="Medida do teste de trama (B)" />
+      <input type="number" id="c" placeholder="Medida da trama desejada (C)" />
+      <button onclick="calcular()">Calcular</button>
+      <p class="resultado" id="resultado"></p>
+    </div>
+    <script>
+      function calcular() {
+        let a = parseFloat(document.getElementById("a").value)
+        let b = parseFloat(document.getElementById("b").value)
+        let c = parseFloat(document.getElementById("c").value)
+
+        if (a > 0 && b > 0 && c > 0) {
+          let x = (a * c) / b // Fórmula corrigida
+          document.getElementById("resultado").innerText =
+            `Quantidade de fios necessários: ${x.toFixed(2)}`
+        } else {
+          document.getElementById("resultado").innerText =
+            "Por favor, insira valores válidos."
+        }
+      }
+    </script>
+  </body>
+</html>
